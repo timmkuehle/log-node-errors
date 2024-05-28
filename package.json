@@ -1,0 +1,36 @@
+{
+	"name": "node-error-logger",
+	"version": "0.9.0",
+	"description": "A simple library that logs NodeJS errors",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "webpack --watch --mode development",
+		"build": "webpack --mode production"
+	},
+	"keywords": [
+		"NodeJS",
+		"errors",
+		"logs"
+	],
+	"author": "Tim Moritz Kühle",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/eslint": "^8.56.10",
+		"@types/webpack-node-externals": "^3.0.4",
+		"clean-webpack-plugin": "^4.0.0",
+		"eslint": "^9.3.0",
+		"eslint-config-prettier": "^9.1.0",
+		"nodemon-webpack-plugin": "^4.8.2",
+		"prettier": "^3.2.5",
+		"ts-loader": "^9.5.1",
+		"typescript": "^5.4.5",
+		"typescript-eslint": "^8.0.0-alpha.20",
+		"webpack": "^5.91.0",
+		"webpack-cli": "^5.1.4",
+		"webpack-node-externals": "^3.0.0"
+	},
+	"dependencies": {
+		"colors": "^1.4.0"
+	}
+}
