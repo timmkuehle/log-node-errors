@@ -30,7 +30,7 @@ export default (env, argv) => {
 		plugins: [
 			new NodemonPlugin({
 				script: "./dist/index.js",
-				watch: path.resolve("./dist/index.js"),
+				watch: [path.resolve("./dist/index.js")],
 				ignore: ["*.js.map"],
 				nodeArgs: ["--enable-source-maps"]
 			})
