@@ -1,11 +1,10 @@
-/** @type {import('eslint').Linter.FlatConfig[]} */
-
 import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
 import eslint from "@eslint/js";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
 
+/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
 	{
 		...eslint.configs.recommended,

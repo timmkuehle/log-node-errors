@@ -1,13 +1,14 @@
-/** @type {import('webpack').Configuration} */
-
 import path from "path";
 import nodeExternals from "webpack-node-externals";
 import NodemonPlugin from "nodemon-webpack-plugin";
 
+/** @type {() => import('webpack').Configuration | import('webpack').Configuration[]} */
 export default (env, argv) => {
 	const { mode } = argv;
 	const isProduction = mode === "production";
 	const devtool = isProduction ? false : "source-map";
+
+	/** @type {import('webpack').Configuration} */
 	const commonConfig = {
 		mode,
 		devtool,
