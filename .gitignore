@@ -1,5 +1,5 @@
 node_modules
 package-lock.json
+dist
 *.js.map
-index.js
 .DS_Store
