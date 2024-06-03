@@ -3,22 +3,15 @@
 import path from "path";
 import nodeExternals from "webpack-node-externals";
 import NodemonPlugin from "nodemon-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 export default (env, argv) => {
 	const { mode } = argv;
 	const isProduction = mode === "production";
 	const devtool = isProduction ? false : "source-map";
-
-	return {
+	const commonConfig = {
 		mode,
 		devtool,
 		externalsPresets: { node: true },
-		externals: [
-			nodeExternals({
-				importType: "module"
-			})
-		],
 		entry: "./src/index.ts",
 		module: {
 			rules: [
@@ -31,27 +24,57 @@ export default (env, argv) => {
 		},
 		resolve: { extensions: ["", ".js", ".ts"] },
 		output: {
-			path: path.resolve("."),
-			filename: "index.js",
-			library: {
-				type: "module"
-			}
+			path: path.resolve(".", "dist")
 		},
 		plugins: [
 			new NodemonPlugin({
-				script: "./index.js",
+				script: "./dist/index.js",
 				watch: path.resolve("./index.js"),
 				ignore: ["*.js.map"],
 				nodeArgs: ["--enable-source-maps"]
-			}),
-			new CleanWebpackPlugin({
-				protectWebpackAssets: false,
-				cleanOnceBeforeBuildPatterns: ["./*.js.map"],
-				verbose: isProduction
 			})
-		],
-		experiments: {
-			outputModule: true
-		}
+		]
 	};
+
+	return [
+		{
+			...commonConfig,
+			externals: [
+				nodeExternals({
+					importType: "module"
+				})
+			],
+			output: {
+				...commonConfig.output,
+				filename: "index.js",
+				library: {
+					type: "module"
+				},
+				clean: {
+					keep: "index.cjs.js"
+				}
+			},
+			experiments: {
+				outputModule: true
+			}
+		},
+		{
+			...commonConfig,
+			externals: [
+				nodeExternals({
+					importType: "umd"
+				})
+			],
+			output: {
+				...commonConfig.output,
+				filename: "index.cjs.js",
+				library: {
+					type: "umd"
+				},
+				clean: {
+					keep: "index.js"
+				}
+			}
+		}
+	];
 };
