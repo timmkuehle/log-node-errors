@@ -63,7 +63,7 @@ export default (env, argv) => {
 			...commonConfig,
 			externals: [
 				nodeExternals({
-					importType: "commonjs2"
+					importType: "commonjs"
 				})
 			],
 			output: {
