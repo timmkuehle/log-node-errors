@@ -10,6 +10,7 @@
 	"files": [
 		"dist"
 	],
+	"types": "dist/index.d.ts",
 	"type": "module",
 	"scripts": {
 		"start": "webpack --watch --mode development",
