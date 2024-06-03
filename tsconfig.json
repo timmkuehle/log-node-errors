@@ -9,7 +9,7 @@
 		"lib": ["ES2018"],
 		"skipDefaultLibCheck": true,
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"esModuleInterop": true,
