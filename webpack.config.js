@@ -63,14 +63,14 @@ export default (env, argv) => {
 			...commonConfig,
 			externals: [
 				nodeExternals({
-					importType: "umd"
+					importType: "commonjs2"
 				})
 			],
 			output: {
 				...commonConfig.output,
 				filename: "index.cjs",
 				library: {
-					type: "umd"
+					type: "commonjs2"
 				},
 				clean: {
 					keep: "index.js"
