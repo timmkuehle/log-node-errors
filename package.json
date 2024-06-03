@@ -2,10 +2,10 @@
 	"name": "node-error-logger",
 	"version": "0.9.0",
 	"description": "A simple library that logs NodeJS errors",
-	"main": "dist/index.cjs.js",
+	"main": "dist/index.cjs",
 	"exports": {
 		"import": "./dist/index.js",
-		"require": "./dist/index.cjs.js"
+		"require": "./dist/index.cjs"
 	},
 	"files": [
 		"dist"

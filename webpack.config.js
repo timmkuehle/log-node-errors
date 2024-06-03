@@ -52,7 +52,7 @@ export default (env, argv) => {
 					type: "module"
 				},
 				clean: {
-					keep: "index.cjs.js"
+					keep: "index.cjs"
 				}
 			},
 			experiments: {
@@ -68,7 +68,7 @@ export default (env, argv) => {
 			],
 			output: {
 				...commonConfig.output,
-				filename: "index.cjs.js",
+				filename: "index.cjs",
 				library: {
 					type: "umd"
 				},
