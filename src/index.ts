@@ -1,7 +1,3 @@
-import { hans } from "./hans";
-import { wurst } from "./wurst";
+export { hans } from "./hans";
 
-export default {
-	hans,
-	wurst
-};
+export { wurst } from "./wurst";
