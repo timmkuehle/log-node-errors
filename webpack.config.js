@@ -2,7 +2,7 @@ import path from "path";
 import nodeExternals from "webpack-node-externals";
 import NodemonPlugin from "nodemon-webpack-plugin";
 
-/** @type {() => import('webpack').Configuration | import('webpack').Configuration[]} */
+/** @type {(env: any, argv: any) => import('webpack').Configuration | import('webpack').Configuration[]} */
 export default (env, argv) => {
 	const { mode } = argv;
 	const isProduction = mode === "production";
