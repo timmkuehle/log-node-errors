@@ -9,7 +9,7 @@ export default (env, argv) => {
 	const devtool = isProduction ? false : "source-map";
 
 	/** @type {import('webpack').Configuration} */
-	const commonConfig = {
+	const baseConfig = {
 		mode,
 		devtool,
 		externalsPresets: { node: true },
