@@ -37,45 +37,36 @@ export default (env, argv) => {
 		]
 	};
 
-	return [
-		{
-			...commonConfig,
-			externals: [
-				nodeExternals({
-					importType: "module"
-				})
-			],
-			output: {
-				...commonConfig.output,
-				filename: "index.js",
-				library: {
-					type: "module"
-				},
-				clean: {
-					keep: "index.cjs"
-				}
-			},
-			experiments: {
-				outputModule: true
-			}
+	/** @type {import('webpack').Configuration} */
+	const mjsConfig = {
+		...baseConfig,
+		externals: [nodeExternals({ importType: "module" })],
+		output: {
+			...baseConfig.output,
+			filename: "index.js",
+			library: { type: "module" },
+			clean: isProduction ? { keep: "index.cjs" } : true
 		},
-		{
-			...commonConfig,
-			externals: [
-				nodeExternals({
-					importType: "commonjs"
-				})
-			],
-			output: {
-				...commonConfig.output,
-				filename: "index.cjs",
-				library: {
-					type: "commonjs2"
-				},
-				clean: {
-					keep: "index.js"
-				}
+		experiments: {
+			outputModule: true
+		}
+	};
+
+	/** @type {import('webpack').Configuration} */
+	const cjsConfig = {
+		...baseConfig,
+		externals: [nodeExternals({ importType: "commonjs" })],
+		output: {
+			...baseConfig.output,
+			filename: "index.cjs",
+			library: {
+				type: "commonjs2"
+			},
+			clean: {
+				keep: "index.js"
 			}
 		}
-	];
+	};
+
+	return isProduction ? [mjsConfig, cjsConfig] : mjsConfig;
 };
