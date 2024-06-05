@@ -3,7 +3,6 @@
 	"exclude": ["node_modules"],
 	"compilerOptions": {
 		"outDir": "dist",
-		"declaration": true,
 		"strict": true,
 		"target": "ES2018",
 		"lib": ["ES2018"],

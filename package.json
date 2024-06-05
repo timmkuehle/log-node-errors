@@ -28,6 +28,7 @@
 		"@types/eslint__js": "^8.42.3",
 		"@types/eslint-config-prettier": "^6.11.3",
 		"@types/webpack-node-externals": "^3.0.4",
+		"bundle-declarations-webpack-plugin": "^5.1.1",
 		"eslint": "^9.3.0",
 		"eslint-config-prettier": "^9.1.0",
 		"nodemon-webpack-plugin": "^4.8.2",

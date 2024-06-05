@@ -1,5 +1,6 @@
 import path from "path";
 import nodeExternals from "webpack-node-externals";
+import BundleDeclarationsWebpackPlugin from "bundle-declarations-webpack-plugin";
 import NodemonPlugin from "nodemon-webpack-plugin";
 
 /** @type {(env: any, argv: any) => import('webpack').Configuration | import('webpack').Configuration[]} */
@@ -63,10 +64,21 @@ export default (env, argv) => {
 				type: "commonjs2"
 			},
 			clean: {
-				keep: "index.js"
+				keep: /^(index.js|.+\.d\.ts)$/
 			}
 		}
 	};
 
-	return isProduction ? [mjsConfig, cjsConfig] : mjsConfig;
+	return isProduction
+		? [
+				{
+					...mjsConfig,
+					plugins: [
+						...baseConfig.plugins,
+						new BundleDeclarationsWebpackPlugin.default()
+					]
+				},
+				cjsConfig
+			]
+		: mjsConfig;
 };
