@@ -19,7 +19,7 @@ export default [
 		}
 	},
 	{
-		files: ["src/**/*.ts"],
+		files: ["src/**/*.ts", "dist/**/*.d.ts"],
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: { project: ["tsconfig.json"] }
