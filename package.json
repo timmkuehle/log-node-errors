@@ -14,7 +14,8 @@
 	"type": "module",
 	"scripts": {
 		"start": "webpack --watch --mode development",
-		"build": "webpack --mode production"
+		"build": "webpack --mode production",
+		"lint": "eslint"
 	},
 	"keywords": [
 		"NodeJS",
@@ -24,18 +25,17 @@
 	"author": "Tim Moritz Kühle",
 	"license": "ISC",
 	"devDependencies": {
-		"@types/eslint": "^8.56.10",
 		"@types/eslint__js": "^8.42.3",
 		"@types/eslint-config-prettier": "^6.11.3",
 		"@types/webpack-node-externals": "^3.0.4",
 		"bundle-declarations-webpack-plugin": "^5.1.1",
-		"eslint": "^9.3.0",
+		"eslint": "^9.11.1",
 		"eslint-config-prettier": "^9.1.0",
 		"nodemon-webpack-plugin": "^4.8.2",
 		"prettier": "^3.2.5",
 		"ts-loader": "^9.5.1",
 		"typescript": "^5.4.5",
-		"typescript-eslint": "^8.0.0-alpha.26",
+		"typescript-eslint": "^8.8.0",
 		"webpack": "^5.91.0",
 		"webpack-cli": "^5.1.4",
 		"webpack-node-externals": "^3.0.0"
