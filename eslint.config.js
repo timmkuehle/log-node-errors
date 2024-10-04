@@ -1,34 +1,32 @@
-import globals from "globals";
-import tsParser from "@typescript-eslint/parser";
 import eslint from "@eslint/js";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
+import globals from "globals";
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
-export default [
+/** @type {import("typescript-eslint").ConfigWithExtends[]} */
+export default tseslint.config(
+	eslint.configs.recommended,
+	...tseslint.configs.strictTypeChecked,
+	...tseslint.configs.stylisticTypeChecked,
 	{
-		...eslint.configs.recommended,
 		...eslintConfigPrettier,
-		files: ["**/*.@(t|j)s"],
 		languageOptions: {
+			parser: tseslint.parser,
+			parserOptions: { project: ["tsconfig.json"] },
 			globals: globals.node
 		},
 		rules: {
-			"no-undef": "error",
-			"no-unused-vars": "warn"
-		}
-	},
-	{
-		files: ["src/**/*.ts", "dist/**/*.d.ts"],
-		languageOptions: {
-			parser: tsParser,
-			parserOptions: { project: ["tsconfig.json"] }
-		},
-		plugins: { "@typescript-eslint": tsPlugin },
-		rules: {
-			...tsPlugin.configs.recommended.rules,
 			"no-undef": "off",
 			"@typescript-eslint/no-unused-vars": "warn"
 		}
+	},
+	{
+		files: ["**/*.js"],
+		...tseslint.configs.disableTypeChecked,
+		rules: {
+			...tseslint.configs.disableTypeChecked.rules,
+			"no-undef": "error",
+			"no-unused-vars": "warn"
+		}
 	}
-];
+);
