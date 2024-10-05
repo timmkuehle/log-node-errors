@@ -1,5 +1,5 @@
 {
-	"include": ["src/**/*.ts"],
+	"include": ["src/**/*.ts", "eslint.config.js", "prettier.config.js"],
 	"exclude": ["node_modules"],
 	"compilerOptions": {
 		"outDir": "dist",
@@ -16,6 +16,7 @@
 		"strictPropertyInitialization": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
-		"allowJs": true
+		"allowJs": true,
+		"checkJs": true
 	}
 }
