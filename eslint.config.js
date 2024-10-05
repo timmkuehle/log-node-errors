@@ -21,12 +21,20 @@ export default tseslint.config(
 		}
 	},
 	{
-		files: ["**/*.js"],
+		files: ["**/*.{js,cjs,mjs,d.ts}"],
 		...tseslint.configs.disableTypeChecked,
 		rules: {
 			...tseslint.configs.disableTypeChecked.rules,
 			"no-undef": "error",
 			"no-unused-vars": "warn"
+		}
+	},
+	{
+		files: ["dist/**/*.{js,cjs,mjs,d.ts}"],
+		rules: {
+			"@typescript-eslint/no-unused-expressions": "off",
+			"@typescript-eslint/no-unused-vars": "off",
+			"no-unused-vars": "off"
 		}
 	}
 );
