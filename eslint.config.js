@@ -17,7 +17,9 @@ export default tseslint.config(
 		},
 		rules: {
 			"no-undef": "off",
-			"@typescript-eslint/no-unused-vars": "warn"
+			"no-useless-escape": "warn",
+			"@typescript-eslint/no-unused-vars": "warn",
+			"@typescript-eslint/consistent-type-definitions": "warn"
 		}
 	},
 	{
