@@ -16,6 +16,7 @@ export default tseslint.config(
 			globals: globals.node
 		},
 		rules: {
+			...eslintConfigPrettier.rules,
 			"no-undef": "off",
 			"no-useless-escape": "warn",
 			"@typescript-eslint/no-unused-vars": "warn",
