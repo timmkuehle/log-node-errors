@@ -1,5 +1,10 @@
 {
-	"include": ["src/**/*.ts", "eslint.config.js", "prettier.config.js"],
+	"include": [
+		"src/**/*.ts",
+		"eslint.config.js",
+		"prettier.config.js",
+		"webpack.config.js"
+	],
 	"exclude": ["node_modules"],
 	"compilerOptions": {
 		"outDir": "dist",
