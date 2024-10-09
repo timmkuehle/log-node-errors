@@ -74,7 +74,8 @@ export default (env, argv) => {
 				{
 					...mjsConfig,
 					plugins: [
-						...baseConfig.plugins,
+						...(baseConfig.plugins ?? []),
+						// @ts-expect-error | BundleDeclarationsWebpackPlugin holds plugin class at "default" key
 						new BundleDeclarationsWebpackPlugin.default()
 					]
 				},
